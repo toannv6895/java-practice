@@ -22,18 +22,23 @@ public class DoubleLinkedList {
         size++;
     }
 
-    public void removeLast() {
+    public void addFirst(Node node) {
+        head.next.prev = node;
+        node.next = head.next;
+        node.prev = head;
+        head.next = node;
+//        Node first = head.next;
+//        first.prev.next = first.next;
+//        first.next.prev = first.prev;
+        size++;
+    }
+
+    public Node removeLast() {
         Node last = tail.prev;
         last.prev.next = last.next;
         last.next.prev = last.prev;
         size--;
-    }
-
-    public void removeFirst() {
-        Node first = head.next;
-        first.prev.next = first.next;
-        first.next.prev = first.prev;
-        size--;
+        return last;
     }
 
     public void remove(Node node) {

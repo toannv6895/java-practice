@@ -1,7 +1,7 @@
 package com.toannguyen;
 
 public class Node {
-    private int key, value;
+    public int key, value;
     public Node prev, next;
 
     public Node(int k, int v) {
