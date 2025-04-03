@@ -1,9 +1,9 @@
 package com.toannguyen;
 
 public class Stack {
-    private int arr[];
+    private final int[] arr;
     private int top;
-    private int capacity;
+    private final int capacity;
 
     public Stack(int size) {
         arr = new int[size];
@@ -26,7 +26,9 @@ public class Stack {
             System.exit(1);
         }
 
-        return arr[top--];
+        int result = arr[top];
+        arr[top--] = -1;
+        return result;
     }
 
     public int size() {
